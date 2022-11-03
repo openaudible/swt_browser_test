@@ -1,17 +1,29 @@
 Simple MacOS Application to demonstrate crash in webkit when run via Java Eclipse SWT on Ventura on Intel x86-64.
 
-Run by double clicking the application, or by running:
-SWTBrowserTest.app/Contents/MacOS/JavaApplicationStub
-Some arguments:
-SWTBrowserTest.app/Contents/MacOS/JavaApplicationStub --help
-will let you set the delay before exit (--delay N) or URL to load (--url page)
-
-
-Also can be run from java, which usually does not crash:
-./SWTBrowserTest.app/Contents/Resources/jre.bundle/Contents/Home/bin/java -XstartOnFirstThread -jar ./SWTBrowserTest.app/Contents/Resources/app/mac_x86_64-jar-with-dependencies.jar --delay 5
-
 Expected behavior: Shows a brief page with a google map then quits with exit code 0.
 Buggy behavior (Ventura/Intel): Shows a window, closes, and a Crash Reporter Dialog comes up.
+
+Download the DMG and open
+
+The application is not signed, so double-clicking will give you an error.. but you can run it from terminal:
+
+SWTBrowserTest.app/Contents/MacOS/JavaApplicationStub
+
+Some optional arguments are available:
+SWTBrowserTest.app/Contents/MacOS/JavaApplicationStub --help
+
+```
+SWTBrowser Test App. Opens an SWT browser url, waits for a delay length of 1000ms, and exits.
+Optional arguments:
+--delay (number of milliseconds, or -1 too not exit automatically.
+--url (page to load)
+--help  Displays this message
+```
+
+You can also run this using your own java or the one integrated into the .app:
+
+./SWTBrowserTest.app/Contents/Resources/jre.bundle/Contents/Home/bin/java -XstartOnFirstThread -jar ./SWTBrowserTest.app/Contents/Resources/app/mac_x86_64-jar-with-dependencies.jar --delay 5
+
 
 
 Building:
@@ -23,3 +35,4 @@ The -XstartOnFirstThread is required for Mac. For Linux and Windows, it is not n
 
 Installer to package DMG requires Install4j 9.
 
+Any help finding the bug with Ventura WebKit is appreciated.
