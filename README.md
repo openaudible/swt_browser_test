@@ -27,15 +27,19 @@ Optional arguments:
 ```
 
 You can also run this using your own java or the one integrated into the .app:
-
+```
 ./SWTBrowserTest.app/Contents/Resources/jre.bundle/Contents/Home/bin/java -XstartOnFirstThread -jar ./SWTBrowserTest.app/Contents/Resources/app/mac_x86_64-jar-with-dependencies.jar --delay 5
-
+```
 
 
 Building:
+```
 mvn clean compile package
+```
 Running:
+```
 java -XstartOnFirstThread -jar target/mac_x86_64-jar-with-dependencies.jar
+```
 
 The -XstartOnFirstThread is required for Mac. For Linux and Windows, it is not needed.
 
